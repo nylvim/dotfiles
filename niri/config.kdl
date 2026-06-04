@@ -1,0 +1,130 @@
+// --- Appearance --- //
+
+prefer-no-csd
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+layer-rule {
+    match namespace="^launcher$"
+    geometry-corner-radius 40
+    shadow { on; }
+}
+
+layout {
+    background-color "#404342"
+
+    center-focused-column "on-overflow"
+    always-center-single-column
+    default-column-display "tabbed"
+
+    gaps 16
+
+    default-column-width { proportion 0.5; }
+
+    preset-column-widths {
+        proportion 0.25
+        proportion 0.333333
+        proportion 0.416666
+        proportion 0.499999
+        proportion 0.583333
+        proportion 0.666666
+        proportion 0.75
+    }
+
+    preset-window-heights {
+        proportion 0.333333
+        proportion 0.499999
+        proportion 0.666666
+        proportion 1.0
+    }
+
+    focus-ring {
+        width 3
+        active-color "#b8d0c4"
+    }
+
+    shadow {
+        on
+        softness 16
+        spread 0
+        offset x=0 y=2
+        color "#00000080"
+    }
+
+    tab-indicator {
+        hide-when-single-tab
+        gap 6
+        width 8
+        gaps-between-tabs 10
+        corner-radius 4
+        inactive-color "#606663"
+    }
+
+    insert-hint {
+        color "#c0e0d080"
+    }
+}
+
+recent-windows {
+    highlight {
+        active-color "#c0e0d0"
+        corner-radius 8
+    }
+
+    previews {
+        max-height 800
+        max-scale 0.55
+    }
+
+    binds {
+        Alt+Tab       { next-window; }
+        Alt+Shift+Tab { previous-window; }
+
+        Mod+Tab       { next-window; }
+        Mod+Shift+Tab { previous-window; }
+    }
+}
+
+// --- Keybinds --- //
+
+include "keybind.kdl"
+
+// --- Window Rules --- //
+
+include "window-rule.kdl"
+
+// --- Input and Output --- //
+
+input {
+    keyboard {
+        repeat-delay 200
+        repeat-rate 20
+        numlock
+    }
+
+    mouse {
+        accel-speed -0.5
+        scroll-factor 1.25
+    }
+}
+
+output "DP-6" {
+    mode "3840x2160@160.000"
+    scale 1.75
+    variable-refresh-rate on-demand=true
+}
+
+// --- Misc --- //
+
+spawn-at-startup "foot" "--server"
+spawn-at-startup "firefox"
+
+screenshot-path "/tmp/Screenshot_%Y%m%d_%H%M%S.png"
+
+hotkey-overlay { skip-at-startup; }
+cursor { hide-after-inactive-ms 5000; }
+clipboard { disable-primary; }
+gestures { hot-corners { top-left; bottom-right; }; }

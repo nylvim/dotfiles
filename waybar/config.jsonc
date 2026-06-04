@@ -1,0 +1,90 @@
+{
+    "layer": "top",
+    // "exclusive": false,
+    "reload_style_on_change": true,
+    "modules-left": [
+        "custom/blank",
+        "custom/archicon",
+        "niri/workspaces",
+        "mpd"
+    ],
+    "modules-center": [
+        "niri/window"
+    ],
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "memory",
+        "clock",
+        "custom/blank"
+    ],
+    "custom/blank": {
+        "format": " ",
+        "tooltip": false
+    },
+    // Left Modules
+    "custom/archicon": {
+        "format": "",
+        "on-click": "/home/novi/.confast/scripts/nonpath/power",
+        "tooltip": false
+    },
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "active": ""
+        }
+    },
+    "mpd": {
+        "max-length": 48,
+        "format": "{stateIcon} {title} - {artist}",
+        "state-icons": {
+            "playing": "",
+            "paused": ""
+        },
+        "tooltip-format": "{title} - {artist}\nVol:{volume}% - {elapsedTime:%M:%S}/{totalTime:%M:%S}",
+        "on-click": "mpc toggle",
+        "on-click-middle": "/home/novi/.confast/scripts/nonpath/see-music-cover",
+        "on-click-right": "euphonica",
+        "on-click-forward": "mpc prev",
+        "on-click-backward": "mpc next"
+    },
+    // Middle Modules
+    "niri/window": {
+        // "icon": true,
+        // "icon-size": 18,
+        "tooltip": false,
+        "max-length": 72
+    },
+    // Right Modules
+    "tray": {
+        "icon-size": 20,
+        "spacing": 8,
+        "show-passive-items": true
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " {volume}%",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+    "memory": {
+        "interval": 15,
+        "format": " {percentage}%",
+        "tooltip-format": "{used}GiB/{total}GiB",
+        "on-click": "footclient -a _float htop",
+        "on-click-right": "missioncenter",
+        "on-click-middle": "footclient -a _float nvtop"
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%m/%d %T}",
+        "format-alt": "{:%a, %Y/%m/%d %T}",
+        "tooltip": false
+    }
+}

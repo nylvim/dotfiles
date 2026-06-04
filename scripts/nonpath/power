@@ -1,0 +1,29 @@
+#!/usr/bin/bash
+
+function reboot_to {
+    var=$(efivar -l | grep LimineLastBootedEntry)
+    tmp=$(mktemp)
+    echo $@ > $tmp
+    sudo efivar -n $var -wf $tmp
+    rm -f $tmp
+    systemctl reboot
+}
+
+result=$(printf '
+1\tShutdown
+2\tRestart
+4\tSleep
+5\tTurn Off Display
+6\tLogout' \
+    | tail +2 \
+    | fuzzel -d -l 5 -w 19 --with-nth 2 --accept-nth 1
+)
+
+case $result in
+    1) systemctl poweroff;;
+    2) systemctl reboot;;
+    3) reboot_to Windows 11;;
+    4) systemctl suspend;;
+    5) niri msg action power-off-monitors;;
+    6) niri msg action quit -s;;
+esac

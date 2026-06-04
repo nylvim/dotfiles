@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+mpddir="$HOME/Music/lib"
+fullpath="$mpddir/$(mpc current -f %file%)"
+ffplay -v error -i "$fullpath" -an

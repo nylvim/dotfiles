@@ -1,0 +1,15 @@
+max-visible=10
+max-history=100
+on-notify=exec paplay /usr/share/sounds/freedesktop/stereo/message.oga
+
+font=sans-serif 11
+format=<span font='monospace italic 10'>%a</span>\n<span font='sans-serif bold 14'>%s</span>\n%b
+
+width=360
+height=240
+border-radius=10
+icon-border-radius=6
+max-icon-size=80
+background-color=#406050D0
+border-color=#60C090D0
+progress-color=#A0E0C0D0

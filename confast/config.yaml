@@ -1,0 +1,34 @@
+root: /home/novi/.confast
+ignored:
+- .git
+- .gitignore
+- README.md
+- scripts
+files:
+  confast: .config/confast
+  environment.d: .config/environment.d
+  fontconfig: .config/fontconfig
+  foot: .config/foot
+  fuzzel: .config/fuzzel
+  mako: .config/mako
+  mihu: .config/mihu
+  misc/electron-flags.conf: .config/electron-flags.conf
+  misc/fcitx5: .config/fcitx5
+  misc/gtk-3.0: .config/gtk-3.0
+  misc/gtk-4.0: .config/gtk-4.0
+  misc/htoprc: .config/htop/htoprc
+  misc/hyfetch.json: .config/hyfetch.json
+  misc/mimeapps.list: .config/mimeapps.list
+  misc/pavucontrol.ini: .config/pavucontrol.ini
+  misc/qq-electron-flags.conf: .config/qq-electron-flags.conf
+  mpd: .config/mpd
+  niri: .config/niri
+  paru: .config/paru
+  rime/default.custom.yaml: .local/share/fcitx5/rime/default.custom.yaml
+  rime/installation.yaml: .local/share/fcitx5/rime/installation.yaml
+  rime/rime_frost.custom.yaml: .local/share/fcitx5/rime/rime_frost.custom.yaml
+  rmpc: .config/rmpc
+  waybar: .config/waybar
+  yazi: .config/yazi
+  zprofile: .zprofile
+  zshrc: .zshrc
