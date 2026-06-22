@@ -20,7 +20,7 @@ layout {
     always-center-single-column
     default-column-display "tabbed"
 
-    gaps 16
+    gaps 12
 
     default-column-width { proportion 0.5; }
 
@@ -36,7 +36,7 @@ layout {
 
     preset-window-heights {
         proportion 0.333333
-        proportion 0.499999
+        proportion 0.5
         proportion 0.666666
         proportion 1.0
     }
@@ -107,7 +107,7 @@ input {
 
     mouse {
         accel-speed -0.5
-        scroll-factor 1.25
+        scroll-factor 1.5
     }
 }
 

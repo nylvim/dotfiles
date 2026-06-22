@@ -13,7 +13,6 @@ files:
   mako: .config/mako
   mihu: .config/mihu
   misc/electron-flags.conf: .config/electron-flags.conf
-  misc/fcitx5: .config/fcitx5
   misc/gtk-3.0: .config/gtk-3.0
   misc/gtk-4.0: .config/gtk-4.0
   misc/htoprc: .config/htop/htoprc

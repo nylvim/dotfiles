@@ -1,11 +1,13 @@
 patch:
   grammar:
     language: wanxiang-lts-zh-hans
-    collocation_max_length: 5
+    collocation_max_length: 8
     collocation_min_length: 2
-    non_collocation_penalty: -4
-    collocation_penalty: -14
-  translator/contextual_suggestions: true
+    collocation_penalty: -12
+    non_collocation_penalty: -12
+    weak_collocation_penalty: -24
+    rear_penalty: -18
+  translator/contextual_suggestions: false
   translator/max_homophones: 7
   translator/max_homographs: 7
 
