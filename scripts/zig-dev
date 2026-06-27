@@ -1,0 +1,25 @@
+#!/bin/sh
+
+update() {
+    INDEX_URL="https://ziglang.org/download/index.json"
+    LAST_UPDATED_FILE="$HOME/.cache/zig_dev_last_updated"
+    ARCH="x86_64-linux"
+
+    index=$(curl -fsSL "$INDEX_URL")
+
+    current_version_date="$(echo "$index" | jq -r .master.date)"
+    [ -f "$LAST_UPDATED_FILE" ] || echo "$current_version_date" > "$LAST_UPDATED_FILE"
+    last_updated=$(cat "$LAST_UPDATED_FILE")
+    [ "$current_version_date" = "$last_updated" ] && { echo Already updated; exit; }
+
+    file=$(echo "$index" | jq -r ".master[\"$ARCH\"].tarball")
+    version=$(echo "$index" | jq -r .master.version)
+    curl -#LC - "$file" | tar -xJ
+    mv -f "zig-$ARCH-$version" zig-dev
+
+    echo "$current_version_date" > "$LAST_UPDATED_FILE"
+}
+
+cd "$HOME/.local/bin"
+[ "$1" = "update" ] && { update; exit; }
+./zig-dev/zig "$@"

@@ -74,7 +74,7 @@
         "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
     "memory": {
-        "interval": 15,
+        "interval": 5,
         "format": " {percentage}%",
         "tooltip-format": "{used}GiB/{total}GiB",
         "on-click": "footclient -a _float htop",

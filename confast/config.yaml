@@ -18,8 +18,9 @@ files:
   misc/htoprc: .config/htop/htoprc
   misc/hyfetch.json: .config/hyfetch.json
   misc/mimeapps.list: .config/mimeapps.list
-  misc/pavucontrol.ini: .config/pavucontrol.ini
+  misc/ncdu: .config/ncdu/config
   misc/qq-electron-flags.conf: .config/qq-electron-flags.conf
+  misc/tealdeer.toml: .config/tealdeer/config.toml
   mpd: .config/mpd
   niri: .config/niri
   paru: .config/paru

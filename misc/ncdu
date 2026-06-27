@@ -1,0 +1,7 @@
+-e
+-t 20
+--color dark
+--exclude /.snapshots
+--exclude /proc
+--exclude /run
+--exclude /mnt/nfs

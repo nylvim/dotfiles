@@ -7,7 +7,7 @@ COMPLETION_WAITING_DOTS="true"
 HYPHEN_INSENSITIVE="true"
 # ENABLE_CORRECTION="true"
 
-plugins=(git sudo rust)
+plugins=(sudo git rust)
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -65,16 +65,11 @@ alias fdh='fd -H'
 alias rgi='rg -i'
 alias ch='code .'
 
-# when will I ever need these
-alias esudo='sudo -E'
-alias psudo='sudo env PATH="$PATH"'
-
 # I like these programs
 alias cat='rat'
 alias ff='ffmpeg -hide_banner'
 alias ffpl='ffplay -hide_banner -v warning'
 alias ffpr='ffprobe -hide_banner'
-alias ncdu='ncdu -e -t 20 --color dark --exclude /.snapshots --exclude /proc --exclude /run --exclude /mnt/nfs'
 alias py='python'
 
 # oxidizing...
