@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/sh
 
 mpddir="$HOME/Music/lib"
 fullpath="$mpddir/$(mpc current -f %file%)"

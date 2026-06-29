@@ -16,6 +16,7 @@ window-rule {
     match app-id="^org.pulseaudio.pavucontrol$"
     match app-id="^QQ$"
     match app-id="^qt6ct$"
+    match app-id="^SVPManager$"
 
     open-floating true
 }

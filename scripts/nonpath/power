@@ -1,14 +1,15 @@
 #!/usr/bin/bash
 
-function reboot_to {
+function reboot_to() {
     var=$(efivar -l | grep LimineLastBootedEntry)
     tmp=$(mktemp)
-    echo $@ > $tmp
-    sudo efivar -n $var -wf $tmp
-    rm -f $tmp
+    echo "$@" > "$tmp"
+    sudo efivar -n "$var" -wf "$tmp"
+    rm -f "$tmp"
     systemctl reboot
 }
 
+# 3\tRestart to Windows
 result=$(printf '
 1\tShutdown
 2\tRestart

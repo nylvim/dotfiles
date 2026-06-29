@@ -1,0 +1,42 @@
+mixed-port: 7890
+external-controller: 127.0.0.1:9090
+
+profile:
+  store-selected: true
+
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 24
+
+ipv6: true
+unified-delay: true
+allow-lan: true
+lan-allowed-ips:
+  - 127.0.0.0/8
+  - 10.0.0.0/8
+  - 172.16.0.0/12
+skip-auth-prefixes:
+  - 127.0.0.0/8
+  - 10.0.0.0/8
+  - 172.16.0.0/12
+
+dns!:
+  enable: true
+  ipv6: true
+  prefer-h3: true
+  respect-rules: false
+  enhanced-mode: normal
+  default-nameserver:
+    - 223.5.5.5
+  nameserver:
+    - https://dns.uhio.uk:453/dns-query
+
++rules:
+  - DOMAIN-SUFFIX,aq,DIRECT
+  - DOMAIN-SUFFIX,boomlings.com,DIRECT
+  - DOMAIN-SUFFIX,jspvz.com,DIRECT
+  - DOMAIN-SUFFIX,hf-mirror.com,DIRECT
+  - DOMAIN-SUFFIX,pairdrop.net,DIRECT
+  - DOMAIN-SUFFIX,bilibili.com,DIRECT
+  - DOMAIN-SUFFIX,bilivideo.com,DIRECT
+  - DOMAIN-SUFFIX,hdslb.com,DIRECT

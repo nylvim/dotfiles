@@ -1,25 +1,25 @@
 #!/bin/sh
 
-update() {
-    INDEX_URL="https://ziglang.org/download/index.json"
-    LAST_UPDATED_FILE="$HOME/.cache/zig_dev_last_updated"
-    ARCH="x86_64-linux"
+PREFIX="$HOME/.local/bin"
+ARCH="x86_64-linux"
+INDEX_URL="https://ziglang.org/download/index.json"
+PREV_VERSION_FILE="$HOME/.cache/zig_dev_prev_version"
 
-    index=$(curl -fsSL "$INDEX_URL")
+[ "$1" = "update" ] || { "$PREFIX/zig-dev/zig" "$@"; exit; }
 
-    current_version_date="$(echo "$index" | jq -r .master.date)"
-    [ -f "$LAST_UPDATED_FILE" ] || echo "$current_version_date" > "$LAST_UPDATED_FILE"
-    last_updated=$(cat "$LAST_UPDATED_FILE")
-    [ "$current_version_date" = "$last_updated" ] && { echo Already updated; exit; }
+cd "$PREFIX"
+index=$(curl -fsSL "$INDEX_URL")
 
-    file=$(echo "$index" | jq -r ".master[\"$ARCH\"].tarball")
-    version=$(echo "$index" | jq -r .master.version)
-    curl -#LC - "$file" | tar -xJ
-    mv -f "zig-$ARCH-$version" zig-dev
+version="$(echo "$index" | jq -r .master.version)"
+[ -f "$PREV_VERSION_FILE" ] \
+    && [ "$version" = "$(cat "$PREV_VERSION_FILE")" ] \
+    && { echo already up to date; exit; }
 
-    echo "$current_version_date" > "$LAST_UPDATED_FILE"
+[ -d zig-dev ] && rm -rf zig-dev
+mkdir zig-dev
+file=$(echo "$index" | jq -r ".master[\"$ARCH\"].tarball")
+curl -fL -C - "$file" -o zig-dev.tmp && {
+    tar -xf zig-dev.tmp --strip-components 1 -C zig-dev
+    rm -f zig-dev.tmp
+    echo "$version" > "$PREV_VERSION_FILE"
 }
-
-cd "$HOME/.local/bin"
-[ "$1" = "update" ] && { update; exit; }
-./zig-dev/zig "$@"

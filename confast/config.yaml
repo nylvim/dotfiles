@@ -11,24 +11,22 @@ files:
   foot: .config/foot
   fuzzel: .config/fuzzel
   mako: .config/mako
-  mihu: .config/mihu
+  mihu/global_override.yaml: .config/mihu/global_override.yaml
   misc/electron-flags.conf: .config/electron-flags.conf
-  misc/gtk-3.0: .config/gtk-3.0
-  misc/gtk-4.0: .config/gtk-4.0
   misc/htoprc: .config/htop/htoprc
   misc/hyfetch.json: .config/hyfetch.json
   misc/mimeapps.list: .config/mimeapps.list
-  misc/ncdu: .config/ncdu/config
   misc/qq-electron-flags.conf: .config/qq-electron-flags.conf
   misc/tealdeer.toml: .config/tealdeer/config.toml
   mpd: .config/mpd
+  mpv: .config/mpv
+  ncdu: .config/ncdu/config
   niri: .config/niri
-  paru: .config/paru
+  paru.conf: .config/paru/paru.conf
   rime/default.custom.yaml: .local/share/fcitx5/rime/default.custom.yaml
-  rime/installation.yaml: .local/share/fcitx5/rime/installation.yaml
   rime/rime_frost.custom.yaml: .local/share/fcitx5/rime/rime_frost.custom.yaml
   rmpc: .config/rmpc
   waybar: .config/waybar
-  yazi: .config/yazi
+  yazi.toml: .config/yazi/yazi.toml
   zprofile: .zprofile
   zshrc: .zshrc
