@@ -23,7 +23,7 @@ function lsfnt {
     fc-list : family \
     | cut -d ',' -f 1 \
     | sort -u \
-    | fuzzel -d
+    | fzf
 }
 
 function tmp {

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+SESSION=_resident
+tmux has -t "$SESSION" 2>/dev/null
+[ "$?" != 0 ] && tmux new -d -s "$SESSION" && tmux set -t "$SESSION" status off
+tmux attach -t "$SESSION"

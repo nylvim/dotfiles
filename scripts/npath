@@ -1,0 +1,10 @@
+#!/bin/sh
+
+PREFIX=~/.confast/scripts/nonpath
+
+if [ "$1" = "-p" ]; then
+    echo "$PREFIX/$2"
+else
+    script=$1; shift
+    "$PREFIX/$script" "$@"
+fi

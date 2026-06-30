@@ -1,13 +1,13 @@
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Shift+P hotkey-overlay-title="Power Control"            { spawn "~/.confast/scripts/nonpath/power"; }
+    Mod+Shift+P hotkey-overlay-title="Power Control"            { spawn "npath" "power"; }
     Mod+D       hotkey-overlay-title="App Launcher: fuzzel"     { spawn "fuzzel" "--counter"; }
     Mod+Z       hotkey-overlay-title="Terminal: foot"           { spawn "footclient"; }
-    Mod+Shift+Z hotkey-overlay-title="Floating Terminal: foot"  { spawn "footclient" "-a" "_float"; }
+    Mod+Shift+Z hotkey-overlay-title="Resident Terminal: foot"  { spawn "footclient" "-a" "_float" "npath" "resiterm"; }
     Mod+X       hotkey-overlay-title="File Manager: yazi"       { spawn "footclient" "-a" "_float" "yazi"; }
     Mod+Shift+X hotkey-overlay-title="File Manager: Nautilus"   { spawn "nautilus"; }
-    Mod+V       hotkey-overlay-title="Clipboard: CopyQ"         { spawn "copyq" "show"; }
+    Mod+V       hotkey-overlay-title="Clipboard"                { spawn "footclient" "-a" "_clipboard" "cb"; }
     Mod+Period  hotkey-overlay-title="Emoji Picker: emote"      { spawn "emote"; }
     Mod+Shift+C hotkey-overlay-title="Color Picker: Hyprpicker" { spawn "hyprpicker" "-a"; }
 
@@ -25,7 +25,7 @@ binds {
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
-    Mod+O repeat=false { toggle-overview; }
+    Mod+A repeat=false { toggle-overview; }
 
     Mod+Q { close-window; }
 
@@ -100,8 +100,6 @@ binds {
 
     // Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    Mod+B { spawn "killall" "-SIGUSR1" "waybar"; }
-
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
@@ -112,5 +110,6 @@ binds {
     Mod+5 { focus-workspace 5; }
     Mod+6 { focus-workspace 6; }
 
+    Mod+B hotkey-overlay-title="Toggle Waybar" { spawn "killall" "-SIGUSR1" "waybar"; }
     // F9 { spawn "obs-cmd" "-w" "obsws://localhost:4455/123456" "recording" "toggle"; }
 }

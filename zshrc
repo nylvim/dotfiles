@@ -26,7 +26,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' original false
-zstyle :compinstall filename '/home/novi/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 compinit
@@ -36,11 +36,15 @@ compinit
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+source <(starship init zsh)
+source <(zoxide init zsh)
+source <(fzf --zsh)
 
 
 # --- Customization ---
+
+export FZF_DEFAULT_COMMAND='fd -HLtf --strip-cwd-prefix -E.git'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 # revert useless omz aliases
 unalias '...' '....' '.....' '......'
@@ -48,7 +52,7 @@ unalias 1 2 3 4 5 6 7 8 9
 unalias _ lsa run-help which-command
 
 # load my shell functions and other stuff
-source ~/.confast/scripts/nonpath/_shmisc.zsh
+source "$(npath -p _shmisc.zsh)"
 
 # Aliases
 
@@ -71,6 +75,7 @@ alias cat='rat'
 alias ff='ffmpeg -hide_banner'
 alias ffpl='ffplay -hide_banner -v warning'
 alias ffpr='ffprobe -hide_banner'
+alias ncdu="ncdu --ignore-config ${(f)$(< ~/.config/ncdu/config)}"
 alias py='python'
 
 # oxidizing...

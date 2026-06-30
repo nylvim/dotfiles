@@ -1,16 +1,16 @@
-root: /home/novi/.confast
+root: .confast
 ignored:
 - .git
 - .gitignore
 - README.md
 - scripts
 files:
-  confast: .config/confast
+  confast.yaml: .config/confast/config.yaml
   environment.d: .config/environment.d
   fontconfig: .config/fontconfig
-  foot: .config/foot
-  fuzzel: .config/fuzzel
-  mako: .config/mako
+  foot.ini: .config/foot/foot.ini
+  fuzzel.ini: .config/fuzzel/fuzzel.ini
+  mako.config: .config/mako/config
   mihu/global_override.yaml: .config/mihu/global_override.yaml
   misc/electron-flags.conf: .config/electron-flags.conf
   misc/htoprc: .config/htop/htoprc
@@ -18,14 +18,13 @@ files:
   misc/mimeapps.list: .config/mimeapps.list
   misc/qq-electron-flags.conf: .config/qq-electron-flags.conf
   misc/tealdeer.toml: .config/tealdeer/config.toml
-  mpd: .config/mpd
+  mpd.conf: .config/mpd/mpd.conf
   mpv: .config/mpv
-  ncdu: .config/ncdu/config
+  ncdu_opts: .config/ncdu/config
   niri: .config/niri
   paru.conf: .config/paru/paru.conf
   rime/default.custom.yaml: .local/share/fcitx5/rime/default.custom.yaml
   rime/rime_frost.custom.yaml: .local/share/fcitx5/rime/rime_frost.custom.yaml
-  rmpc: .config/rmpc
   waybar: .config/waybar
   yazi.toml: .config/yazi/yazi.toml
   zprofile: .zprofile

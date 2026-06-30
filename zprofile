@@ -1,10 +1,10 @@
 if [[ -z "$DISPLAY" && "$(tty)" == "/dev/tty1" && -z "$NIRI_LOADED" ]]; then
     export NIRI_LOADED=1
-    path+=(
-        /home/novi/.local/bin
-        /home/novi/.cargo/bin
-        /home/novi/.confast/scripts
-        /home/novi/.lmstudio/bin
+    path=(
+        "$HOME/.local/bin"
+        "$HOME/.cargo/bin"
+        "${path[@]}"
+        "$HOME/.confast/scripts"
     )
     exec niri-session
 fi

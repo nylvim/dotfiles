@@ -25,7 +25,7 @@
     // Left Modules
     "custom/archicon": {
         "format": "",
-        "on-click": "/home/novi/.confast/scripts/nonpath/power",
+        "on-click": "npath power",
         "tooltip": false
     },
     "niri/workspaces": {
@@ -44,7 +44,7 @@
         },
         "tooltip-format": "{title} - {artist}\nVol:{volume}% - {elapsedTime:%M:%S}/{totalTime:%M:%S}",
         "on-click": "mpc toggle",
-        "on-click-middle": "/home/novi/.confast/scripts/nonpath/see-music-cover",
+        "on-click-middle": "npath see-music-cover",
         "on-click-right": "euphonica",
         "on-click-forward": "mpc prev",
         "on-click-backward": "mpc next"

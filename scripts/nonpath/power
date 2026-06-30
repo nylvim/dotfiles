@@ -1,7 +1,7 @@
-#!/usr/bin/bash
+#!/bin/sh
 
-function reboot_to() {
-    var=$(efivar -l | grep LimineLastBootedEntry)
+reboot_to() {
+    var=$(efivar -l | rg LimineLastBootedEntry)
     tmp=$(mktemp)
     echo "$@" > "$tmp"
     sudo efivar -n "$var" -wf "$tmp"
